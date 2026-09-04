@@ -1,0 +1,21 @@
+Eigen is intended to be a small Lisp DSL/library for modeling and backtesting
+financial time-series (i.e. securities trading) strategies. The goal is to
+create a simple, lightweight sandbox for testing strategies in a clear,
+expressive way (i.e., it is just like my other project, MHDEL, but applied to
+quantitative finance).
+
+I chose lisp specifically because of how clear and expressive the final syntax
+is, especially after having developed a declarative DSL. I'm planning to
+implement in
+ - A simple DSL for expressing strategies and financial data
+ - Built-in primitives for common time-series operations (returns, rolling
+   windows, moving averages, lagging/leading, resampling)
+ - A simple backtesting engine with configurable position sizing, transaction
+   costs, slippage, etc.
+ - Pluggable data sources for historical price/volume data
+ - A simple modelling system, including basic stochastic models.
+
+Contributions are welcome. See the license file.
+
+Thanks,
+Mufaro J. Machaya <mufaro2@student.ubc.ca>
