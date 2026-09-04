@@ -7,6 +7,10 @@
   :license  "MIT"
   :version "0.0.1"
   :serial t
-  :depends-on (#:lisp-stat)
+  :depends-on (#:lisp-stat #:plot/vega #:alexandria)
   :components ((:file "src/package")
-               (:file "src/eigen")))
+               (:file "src/security")
+	       (:file "src/portfolio")
+	       (:file "src/util")
+	       (:file "src/plotting")
+	       (:file "src/example-data")))
