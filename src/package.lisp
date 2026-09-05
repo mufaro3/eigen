@@ -1,7 +1,8 @@
 ;;;; package.lisp
 
-(defpackage #:eigen
-  (:use #:cl)
+(uiop:define-package #:eigen (:use #:cl #:40ants-doc)
+  (:documentation "The main package for Eigen, including all core utilites.")
+  
   (:export
 
    ;; security.lisp
