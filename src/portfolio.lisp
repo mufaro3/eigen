@@ -6,20 +6,20 @@
 
 (defstruct market-order
   "types of market orders (BUY/SELL, symbol, quantity)"
-  (type :type symbol)
-  (ticker :type symbol)
-  (quantity :type integer)
-  (date :type date))
+  (type     nil :type symbol)
+  (ticker   nil :type symbol)
+  (quantity nil :type integer)
+  (date     nil :type date))
 
 (defstruct portfolio
   "naive buy/sell portfolio only"
-  (cash-balance *default-portfolio-balance* :type integer)
-  (positions-held :type (list-of security))
-  (past-orders :type (list-of market-order))
-  (pending-orders :type (list-of market-order))
-  (date :type date))
+  (cash-balance   *default-portfolio-balance* :type integer)
+  (positions-held nil :type (list-of security))
+  (past-orders    nil :type (list-of market-order))
+  (pending-orders nil :type (list-of market-order))
+  (date           nil :type date))
 
-(defun portfolio-total-value (p (metric 'close))
+(defun portfolio-total-value (p &key (metric 'close))
   "Computes the total value of the portfolio (cash plus holdings)."
   (declare (type portfolio p)
 	   (type symbol metric))

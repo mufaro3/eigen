@@ -8,12 +8,9 @@
   (string->date function))
 
 (deftype list-of (element-type)
-  "Defines a compound type specifier for a list containing a specific type."
-  (let ((predicate-name (gensym "LIST-OF-")))
-    (setf (symbol-function predicate-name)
-          #'(lambda (list-instance)
-              (elements-are-of-type list-instance element-type)))
-    `(and list (satisfies ,predicate-name))))
+  "Temporary stand-in for a list type."
+  (declare (ignore element-type))
+  'list)
 
 (defun random-sample-indices (n max)
   "produces a list of n random indices within a range"
@@ -22,9 +19,9 @@
 
 (defstruct date
   "Simple date structure for serializing and deserializing CSVs."
-  (year  :type integer)
-  (month :type integer)
-  (day   :type integer))
+  (year  nil :type integer)
+  (month nil :type integer)
+  (day   nil :type integer))
 
 (defun date->string (date)
   "Converts a date to a YYYY-MM-DD string."
@@ -41,3 +38,9 @@
     (make-date :year (first tokens)
 	       :month (second tokens)
 	       :day (third tokens))))
+
+(defun stack-rows (df &rest objects)
+  "Stack rows that works on matrices and/or data frames."
+  (matrix-df
+   (keys df)
+   (apply #'aops:stack-rows (cons df objects))))

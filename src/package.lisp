@@ -18,6 +18,7 @@
    
    ;; plotting.lisp
    #:plot-security
+   #:plot-securities-list
    
    ;; example-data.lisp
    #:load-example-data))
